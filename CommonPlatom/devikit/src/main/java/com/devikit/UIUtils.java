@@ -1,4 +1,4 @@
-package util;
+package com.devikit;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
+
+import util.MyApplication;
 
 /**
  * 界面相关的工具类；

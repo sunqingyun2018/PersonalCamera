@@ -1,4 +1,4 @@
-package util;
+package com.devikit;
 
 import android.os.ConditionVariable;
 import android.os.Looper;

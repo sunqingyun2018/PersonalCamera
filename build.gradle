@@ -33,4 +33,9 @@ allprojects {
 
 }
 
+task Hello << {
+    println 'hello world'
+
+}
+
 

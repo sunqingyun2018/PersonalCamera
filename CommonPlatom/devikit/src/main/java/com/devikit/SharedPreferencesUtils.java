@@ -1,4 +1,4 @@
-package util;
+package com.devikit;
 
 import android.content.Context;
 import android.content.SharedPreferences;

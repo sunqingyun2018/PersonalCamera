@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.camera2;
+package view;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -7,6 +7,9 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 
+
+import com.camera2.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +28,7 @@ public class FaceIndicatorView extends CustomView {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public FaceIndicatorView(Context context) {
         super(context);
-        faceFrameDrawable= context.getDrawable(R.drawable.circle_face);
+        faceFrameDrawable= context.getDrawable(R.drawable.tri_face);
 
     }
 

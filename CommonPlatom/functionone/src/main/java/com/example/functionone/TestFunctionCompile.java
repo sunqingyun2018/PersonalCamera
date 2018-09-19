@@ -1,10 +1,10 @@
 package com.example.functionone;
 
-public class TestCompile {
+
+public class TestFunctionCompile {
 
     public static void testIsCompile(){
         System.out.println();
-
     }
 
 }
