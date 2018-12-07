@@ -85,7 +85,7 @@ private static String TAG=CameraActivity.class.getSimpleName();
     public CaptureFlow captureFlow;
     private Size mPreviewSize;
     private FaceIndicatorView faceIndicatorView;
-    RelativeLayout relativeLayout;
+    private RelativeLayout relativeLayout;
 
     private Activity mActivity;
     /**
@@ -209,6 +209,8 @@ private static String TAG=CameraActivity.class.getSimpleName();
         initView();
         mFile = new File(this.getExternalFilesDir(null), "pic.jpg");
         mActivity=CameraActivity.this;
+
+
     }
 
     @Override
@@ -238,7 +240,7 @@ private static String TAG=CameraActivity.class.getSimpleName();
         findViewById(R.id.info).setOnClickListener(this);
         findViewById(R.id.btn_plugins).setOnClickListener(this);
         faceIndicatorView=new FaceIndicatorView(this);
-        relativeLayout= (RelativeLayout) findViewById(R.id.relative);
+        relativeLayout=  findViewById(R.id.relative);
         mTextureView = (AutoFitTextureView) findViewById(R.id.texture);
     }
 
@@ -412,7 +414,6 @@ private static String TAG=CameraActivity.class.getSimpleName();
             }
 
             if (faceRects.size() > 0) {
-
                 CameraActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -782,8 +783,10 @@ private static String TAG=CameraActivity.class.getSimpleName();
 
 
     boolean addOne=false;
+
     public void addToShow(RelativeLayout relativeLayout,View view){
         if (!addOne) {
+            Log.i(TAG," addToShow ");
             relativeLayout.addView(view);
             addOne=true;
         }

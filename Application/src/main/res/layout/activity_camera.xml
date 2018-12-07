@@ -63,10 +63,19 @@
 
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/relative"
-        >
+        android:layout_marginBottom="112dp"
+        android:id="@+id/relative">
+
+         <com.example.functionone.FaceIndicatorView
+             android:layout_width="200dp"
+             android:layout_height="200dp"
+             android:id="@+id/face"
+             android:layout_marginTop="200dp"
+             />
+
 
     </RelativeLayout>
 

@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 
 
 import com.camera2.R;
@@ -20,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 
 public class FaceIndicatorView extends CustomView {
-
+    private String TAG=FaceIndicatorView.class.getSimpleName();
     private Map<Integer,FaceFrame> faceFrames =new ConcurrentHashMap<Integer,FaceFrame>();
 
     private final Drawable faceFrameDrawable;
@@ -28,7 +29,7 @@ public class FaceIndicatorView extends CustomView {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public FaceIndicatorView(Context context) {
         super(context);
-        faceFrameDrawable= context.getDrawable(R.drawable.tri_face);
+        faceFrameDrawable= context.getDrawable(R.drawable.face);
 
     }
 
@@ -55,14 +56,13 @@ public class FaceIndicatorView extends CustomView {
             if(!face.isFinished()) {
 
                 allFramesDone =false;
-
                 face.draw(canvas,faceFrameDrawable);
 
             }
 
         }
         if(!allFramesDone) {
-
+            Log.i(TAG," invalidate");
             invalidate();
         }
     }
@@ -93,7 +93,9 @@ public class FaceIndicatorView extends CustomView {
 
         }
 
-//  Update origin faces rect or add new faces.
+        //  Update origin faces rect or add new faces.
+
+        //1 .
 
         for(Map.Entry faceRectEntry : faceRects.entrySet()) {
 

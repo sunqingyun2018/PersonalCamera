@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
 dependencies {
-    //    implementation project(':CommonPlatom:functionone')
-    //    implementation project(':CommonPlatom:devikit')
+    // implementation project(':CommonPlatom:functionone')
+    // implementation project(':CommonPlatom:devikit')
     implementation 'com.android.support:support-v4:25.3.1'
     implementation 'com.android.support:support-v13:25.3.1'
     implementation 'com.android.support:appcompat-v7:25.3.1'
     implementation 'com.squareup:otto:1.3.8'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
 }
 
 // The sample build uses multiple directories to
@@ -24,12 +25,30 @@ android {
     defaultConfig {
         minSdkVersion 23
         targetSdkVersion 27
+        versionCode 1
+
 
     }
+    flavorDimensions "1"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    // 直接通过 sourcesets 增加res 目录会存在资源重命名情况 ，导致gradle  合并资源失败 需要 通过 -S 增加资源引用
+    //
+    aaptOptions{
+//        additionalParameters '--auto-all-overlay','--extra-package','com.example.funtionone:com.qingyun.dm_mode:com.qingyun.general_modde'
+
+    }
+
+
+
     sourceSets {
         main {
 //            dirs.each { dir ->
@@ -40,11 +59,36 @@ android {
                            '../CommonPlatom/functionone/src/main/java',
                            '../CommonPlatom/devikit/src/main/java']
 
+            res.srcDirs=['src/main/res',
+                         '../CommonPlatom/functionone/src/main/res',
+                         '../CommonPlatom/devikit/src/main/res']
+
+            jni.srcDirs=['src/main/jni']
+
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+
         }
+
+        dm{
+            java.srcDirs= ['../dm_mode/src/main/java']
+
+            res.srcDirs=['../dm_mode/src/main/res']
+        }
+
+
+
         androidTest.setRoot('tests')
         androidTest.java.srcDirs = ['tests/src']
 
     }
     productFlavors {
+
+        dm {
+            dimension versionCode
+        }
+
+        general {
+            dimension versionCode
+        }
     }
 }
