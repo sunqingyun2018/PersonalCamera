@@ -1,5 +1,5 @@
 
 //include ':dm_mode', ':general_mode'
 
-include 'Application'
+include 'Application','devikit'
 

@@ -239,7 +239,7 @@ private static String TAG=CameraActivity.class.getSimpleName();
         findViewById(R.id.picture).setOnClickListener(this);
         findViewById(R.id.info).setOnClickListener(this);
         findViewById(R.id.btn_plugins).setOnClickListener(this);
-        faceIndicatorView=new FaceIndicatorView(this);
+        faceIndicatorView= new FaceIndicatorView(this);
         relativeLayout=  findViewById(R.id.relative);
         mTextureView = (AutoFitTextureView) findViewById(R.id.texture);
     }
@@ -746,7 +746,6 @@ private static String TAG=CameraActivity.class.getSimpleName();
             }
 
             case R.id.btn_plugins:
-//                startActivity(new Intent(getActivity(), LiplandActivity.class));
                 break;
         }
 

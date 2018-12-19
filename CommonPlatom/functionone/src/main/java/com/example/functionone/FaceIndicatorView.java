@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.AttributeSet;
 import android.util.Log;
 
 
@@ -28,6 +29,13 @@ public class FaceIndicatorView extends CustomView {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public FaceIndicatorView(Context context) {
+        super(context);
+        faceFrameDrawable= context.getDrawable(R.drawable.face);
+
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public FaceIndicatorView(Context context, AttributeSet attributeSet) {
         super(context);
         faceFrameDrawable= context.getDrawable(R.drawable.face);
 

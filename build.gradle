@@ -37,4 +37,39 @@ allprojects {
 
 }
 
+    project.tasks.findByPath(':Application:assembleDmRelease').doLast{
+
+            println "Hello World"
+
+
+    }
+
+
+// Copy APKs to another folder
+task copyApks(type: Copy) {
+    println "$projectDir/Application/build/outputs/apk/dm/release/"
+    from("$projectDir/Application/build/outputs/apk/dm/release/") {
+//        exclude '**/*unsigned.apk', '**/*unaligned.apk'
+    }
+    into '../apks'
+
+    println "Done"
+}
+
+// A custom task to print available variants
+
+task printVariantNames() {
+    doLast {
+        android.applicationVariants.all {
+            variant ->println variant.name
+        }
+    }
+}
+
+
+// Disabling all tasks that start with the word lint
+gradle.taskGraph.whenReady { graph ->
+    graph.allTasks.findAll { it.name ==~ /lint.*/ }*.enabled = false
+}
+
 
